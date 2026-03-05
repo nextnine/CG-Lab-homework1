@@ -72,17 +72,35 @@ CG-Lab/
 
 ## 5. 运行方式
 
-在 `CG-Lab/` 目录下：
+推荐使用 `uv` 进行项目级环境管理（会在项目内自动创建 `.venv/`，避免全局环境污染）。
+
+### 5.1 初始化与安装依赖
+
+在 `CG-Lab/` 根目录下执行：
 
 ```bash
-# 1) 安装依赖（任选其一）
-uv sync
-# 或
-pip install taichi
+# 初始化项目（首次使用时执行，可指定 Python 版本）
+uv init --python 3.12
 
-# 2) 运行
-python -m src.Work0.main
+# 同步依赖并创建 .venv
+uv sync
+
+# 安装 Taichi
+uv add taichi
 ```
+
+可用 `uv tree` 查看当前依赖树。
+
+### 5.2 使用 src 布局运行
+
+采用 `src` 布局后，务必保证终端当前路径在 `CG-Lab/` 根目录（不要进入 `src/` 再运行）。
+
+```bash
+# 使用模块模式运行（推荐）
+uv run -m src.Work0.main
+```
+
+`-m` 模式会让 Python 正确按包路径解析模块，能有效避免相对导入导致的 `ModuleNotFoundError` 问题。
 
 运行后移动鼠标，即可观察粒子群被吸引、拖尾和碰撞反弹的动态效果。
 
@@ -93,4 +111,3 @@ python -m src.Work0.main
 仓库中已包含演示视频，可直接查看：
 
 - [项目演示视频（MP4）](../Video%20Project.mp4)
-
