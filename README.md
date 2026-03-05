@@ -10,7 +10,7 @@
 ## 1. 项目架构
 
 ```text
-├── README.md               # 项目说明文档
+README.md                   # 项目说明文档
 CG-Lab/
 ├── pyproject.toml          # 项目依赖与 Python 版本要求
 ├── Video Project.mp4       # 项目演示视频
