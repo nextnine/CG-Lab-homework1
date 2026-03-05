@@ -110,4 +110,4 @@ uv run -m src.Work0.main
 
 仓库中已包含演示视频，可直接查看：
 
-- [项目演示视频（MP4）](../CG-Lab/Video%20Project.mp4)
+- [项目演示视频（MP4）](/CG-Lab/Video%20Project.mp4)
