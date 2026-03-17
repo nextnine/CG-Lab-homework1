@@ -112,6 +112,6 @@ uv run -m src.Work0.main
 仓库中已包含演示视频，可直接查看：  
 
 ![VideoProject-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/7e2c7570-ead9-4775-9b09-97cba05736dc)  
-[点击查看/下载视频](./CG-Lab/Video-Project.mp4)
+[点击查看/下载视频](./CG-Lab/Video Project.mp4)
 
 
