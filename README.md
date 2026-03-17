@@ -113,4 +113,3 @@ uv run -m src.Work0.main
 ![VideoProject-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/dcfec9b1-41c2-449d-b0bb-ca1f1ee9af46)
 
 
-- [项目演示视频（MP4）](/CG-Lab/Video%20Project.mp4)
