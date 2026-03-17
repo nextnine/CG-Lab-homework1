@@ -110,11 +110,8 @@ uv run -m src.Work0.main
 ## 6. 演示素材（视频）
 
 仓库中已包含演示视频，可直接查看：  
-
-
-
-![VideoProject-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/2679393e-27a3-47b7-b947-56de043569c5)
-
 [点击查看/下载视频](./CG-Lab/Video-Project.mp4)
+
+![VideoProject-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/f423b6d6-5398-40a1-8be2-e656a5279f13)
 
 
