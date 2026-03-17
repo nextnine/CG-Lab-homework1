@@ -6,6 +6,7 @@ from .config import *
 pos = ti.Vector.field(2, dtype=float, shape=NUM_PARTICLES)
 vel = ti.Vector.field(2, dtype=float, shape=NUM_PARTICLES)
 
+
 @ti.kernel
 def init_particles():
     """初始化每一个粒子的随机坐标"""
@@ -13,20 +14,24 @@ def init_particles():
         pos[i] = [ti.random(), ti.random()]
         vel[i] = [0.0, 0.0]
 
+
 @ti.kernel
-def update_particles(mouse_x: float, mouse_y: float):
-    """物理更新：由 GPU 并行执行"""
+def update_particles(mouse_x: float, mouse_y: float, aspect: float):
+    """物理更新：由 GPU 并行执行。aspect 用于屏幕宽高比补偿。"""
     for i in range(NUM_PARTICLES):
-        # 计算方向与距离
-        mouse_pos = ti.Vector([mouse_x, mouse_y])
-        dir = mouse_pos - pos[i]
-        dist = dir.norm()
-        
+        # 计算方向与距离（先做屏幕空间补偿）
+        d = ti.Vector([mouse_x - pos[i].x, mouse_y - pos[i].y])
+        d.x *= aspect
+        dist = d.norm()
+
         # 施加引力与阻力
         if dist > 0.05:
-            vel[i] += dir.normalized() * GRAVITY_STRENGTH
-            
-        vel[i] *= DRAG_COEF  
+            accel = d.normalized() * GRAVITY_STRENGTH
+            # 还原到归一化坐标空间
+            accel.x /= aspect
+            vel[i] += (accel/120)
+
+        vel[i] *= DRAG_COEF
         pos[i] += vel[i]
 
         # 边框碰撞检测
